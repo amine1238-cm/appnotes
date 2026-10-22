@@ -15,7 +15,7 @@ function Note ({ id, text,onDelete,onSave,isDeleting,deleteDisabled}){
 
     function handleKeyDown(event) {
 
-        if(event.key == "Enter"){
+        if(event.key === "Enter"){
             saveEditing();
         }
     }
@@ -63,7 +63,7 @@ function Note ({ id, text,onDelete,onSave,isDeleting,deleteDisabled}){
                             value={editedText}
                             onChange={(event) => setEditedText(event.target.value)}
                             disabled={isSaving}
-                            onKeyDown={() => handleKeyDown}
+                            onKeyDown={handleKeyDown}
                         />
 
 
