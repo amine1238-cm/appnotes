@@ -18,6 +18,17 @@ function Note ({ id, text,onDelete,onSave,isDeleting,deleteDisabled}){
         if(event.key === "Enter"){
             saveEditing();
         }
+        else if (event.key === "Escape"){
+            cancelEditing();
+        }
+    }
+
+
+    function cancelEditing(){
+        if (isSaving) {
+            return;
+        }
+        setIsEditing(false);
     }
 
     function startEditing() {
@@ -67,7 +78,7 @@ function Note ({ id, text,onDelete,onSave,isDeleting,deleteDisabled}){
                         />
 
 
-                        <button onClick={() => setIsEditing(false)}  disabled={isSaving} >
+                        <button onClick={cancelEditing}  disabled={isSaving} >
                             Cancel
                         </button>
 
